@@ -33,7 +33,7 @@ let finalString = "";
 
 finalString += `
     <header>
-        <img id="logo" src="images/logo.png">
+        <img class="animate__animated animate__rotateInDownLeft" id="logo" src="images/logo.png">
         <img id="pfp" src="images/user-avatar.png">
     </header>`;
 
@@ -72,6 +72,5 @@ for(let i = 0; i < posts.length; i++){
         </section>`
 }
 
-finalString += `<footer></footer>`
 
 container.innerHTML = finalString;
