@@ -29,36 +29,31 @@ const posts = [
 ]
 
 const container = document.getElementById("container");
-let order = [];
-let randomNum = Math.floor(Math.random() * 3)
-let nameJS, usernameJS, locationJS, avatarJS, postJS, commentJS, likesJS;
+let finalString = "";
 
-container.innerHTML += `
+finalString += `
     <header>
         <img id="logo" src="images/logo.png">
         <img id="pfp" src="images/user-avatar.png">
     </header>`;
 
-
-while(order.length != 3){
-    if(order.includes(randomNum) == false){
-        order.push(randomNum);
-        nameJS = posts[randomNum].name;
-        usernameJS = posts[randomNum].username;
-        locationJS = posts[randomNum].location;
-        avatarJS = posts[randomNum].avatar;
-        postJS = posts[randomNum].post;
-        commentJS = posts[randomNum].comment;
-        likesJS = posts[randomNum].likes;
-        container.innerHTML += `
-            <section class="top">
-            <div class="row">
-                <img class="pfp" src="${avatarJS}" alt="">
-                <div class="poster">
-                    <h2>${nameJS}</h2>
-                    <h3>${locationJS}</h3>
-                </div>
+for(let i = 0; i < posts.length; i++){
+        let nameJS = posts[i].name;
+        let usernameJS = posts[i].username;
+        let locationJS = posts[i].location;
+        let avatarJS = posts[i].avatar;
+        let postJS = posts[i].post;
+        let commentJS = posts[i].comment;
+        let likesJS = posts[i].likes;
+        finalString += `
+        <section class="top">
+        <div class="row">
+            <img class="pfp" src="${avatarJS}" alt="">
+            <div class="poster">
+                <h2>${nameJS}</h2>
+                <h3>${locationJS}</h3>
             </div>
+        </div>
         </section>
         <section class="picture">
             <img src="${postJS}" alt="">
@@ -75,8 +70,8 @@ while(order.length != 3){
             <h2>${usernameJS}</h2>
             <h3>${commentJS}</h3>
         </section>`
-    }
-    randomNum = Math.floor(Math.random() * 3)
 }
 
-container.innerHTML += `<footer></footer>`
+finalString += `<footer></footer>`
+
+container.innerHTML = finalString;
